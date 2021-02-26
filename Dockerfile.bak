@@ -1,0 +1,31 @@
+FROM buildpack-deps:focal AS base
+
+RUN apt-get update && \
+    apt-get install -y \
+        wget \
+        libncurses-dev \
+        libmpich-dev \
+        mpich \
+        python3.7 \
+        python3-numpy \
+        python3-scipy \
+        python3-matplotlib \
+        python3-yaml \
+        python3-pytest \
+        python3-pip \
+        cython3 \
+        jupyter \
+        ipython3
+
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 10 && \
+    update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10 && \
+    update-alternatives --install /usr/bin/ipython ipython /usr/bin/ipython3 10
+
+RUN wget https://neuron.yale.edu/ftp/neuron/versions/v7.7/7.7.2/nrn-7.7.2.x86_64-linux-py-37-36-35-27.deb && \
+    dpkg -i nrn-7.7.2.x86_64-linux-py-37-36-35-27.deb
+# ------ latest -----------
+# FROM base AS latest
+
+RUN pip install MEArec MEAutility
+RUN pip install mpi4py LFPy==2.1
+#RUN pip install git+https://github.com/LFPy/LFPy.git@master#egg=LFPy

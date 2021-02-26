@@ -1,0 +1,39 @@
+name: lfpy
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - c-compiler
+  - cxx-compiler
+  - Cython
+  - h5py
+  - hdf5
+  - jupyter
+  - lfpykit
+  - numpy
+  - MEAutility>=1.4.2
+  - matplotlib
+  - make
+  - gxx_linux-64
+  - mpi4py
+  - mpich
+  - pytest
+  - scipy
+  - pip
+  - git
+  - ipykernel
+  - ipyparallel
+  - ipython
+  - ipywidgets
+  - jupyterlab
+  - nodejs>=15
+  - pandas
+  - plotly
+  - seaborn
+  - scikit-learn
+  - requests
+  - psutil
+  - neuron
+  - lfpy==2.1
+prefix: /opt/conda/envs/lfpy
